@@ -21,175 +21,137 @@ function launchModal() {
 }
 
 //ici commence l'excercise appelé par id sur le form)
-
-// const form = document.getElementById("reserve") 
-// document.getElementById("reserve").addEventListener("submit", function(e) {
-//  e.preventDefault();
-//    alert('Merci! Votre réservation a été reçue.');
-//  });
-let reserve = document.getElementById('reserve'); //on fait reserve et on rajoute un événement et 
+ reserve = document.getElementById('reserve'); //on fait reserve et on rajoute un événement et 
 //serà à la sumision de formulaire qu on voudra declencher une fonction et cette fonction on va lui passer l'événement en question
  
 reserve.addEventListener('submit',function(e) {
   // Variables--//creation des variables et recuperations d'elles mêmes par document.get et son Id.
   // ceci permet de récuperer le formulaire
-  let first = document.getElementById('first'); 
-  let last = document.getElementById('last');
-  let email = document.getElementById('email');
-  let birthdate = document.getElementById('birthdate');
-  let quantity = document.getElementById('quantity');
+  e.preventDefault();
+  const first = document.getElementById('first'); 
+  const last = document.getElementById('last');
+  const email = document.getElementById('email');
+  const birthdate = document.getElementById('birthdate');
+  const quantity = document.getElementById('quantity');
+  const myError = document.getElementById('error');
+  const myError1 = document.getElementById('error1');
+  const myError2 = document.getElementById('error2');
+  const myError3 = document.getElementById('error3');
+  const myError4 = document.getElementById('error4');
+ // const location1 = document.getElementById('location1');
+  //  const location2 = document.getElementById('location2');
+  //  const location3 = document.getElementById('location3');
+  //  const location4 = document.getElementById('location4');
+  //  const location5 = document.getElementById('location5'); 
+  //  const location6 = document.getElementById('location6'); 
+  const selectionFinal = new FormData(document.querySelector("form"));
+  //On fera une condition. Si l'input .value est égal à rien de tout, donc elle est vide et dans ce cas là, on ferait un epreventdefault. Et on arrete la soumission sinon on continue et sera envoyé au serveur. 
 
-  //Tournois -quantity - 
-  //récuperation de notre input / on va le faire à l'interieur de la fonction. Maintenant on
-  // fera une condition if
-  // si my input .value est égal à rien de tout, ça veut dire qu'elle est vide et dans ce ca là
-  // on ferait un epreventdefault. Et on arrete la soumission sinon on continue et sera envoyé au serveur. 
-  
-  if (quantity.value == "") {    
-    let myErreur4 = document.getElementById('erreur4');
-    myErreur4.innerHTML = "Vous devez saisir un nombre."; 
-    myErreur4.style.color = 'red';
-    e.preventDefault(); //creation d'une variable et recuperation de la même par document.get et son Id. ceci permet de récuperer le formulaire
+  if (first.value == "") {   
+    myError.innerHTML = "Veuillez entrer 2 lettres minimum pour le champ du prenom."; 
+    myError.style.color = 'red';
+    //myErreur.font-size = 1em  
+  }
+  else {
+    myError.innerHTML = ""; 
+  }
+  // nom
+  if (last.value == "") {  
+    myError1.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom."; 
+    myError1.style.color = 'red';   
   }  
-
-  //Date de naissance- birthdate
-  if (birthdate.value == "") {    
-    let myErreur3 = document.getElementById('erreur3');
-    myErreur3.innerHTML = "Vous devez entrer votre date de naissance."; 
-    myErreur3.style.color = 'red'; 
-    // e.preventDefault();
-  }  
-  
+  else {
+    myError1.innerHTML = ""; 
+  }
   //email
-  if (email.value == "") {    
-    let myErreur2 = document.getElementById('erreur2');
-    myErreur2.innerHTML = "Veuillez entrer un email valide."; 
-    myErreur2.style.color = 'red';
-    //e.preventDefault();
-  }  
-
- // nom
- if (last.value == "") {    
-    let myErreur1 = document.getElementById('erreur1');
-    myErreur1.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom."; // on fait un innerhtml pour ajoter un msg erreur
-    myErreur1.style.color = 'red'; // on ajoute un style
-    //e.preventDefault();
-  }  
-
- // prenom
-  if (first.value == "") {     //on va récuperer mon div erreur créé 
-    let myErreur = document.getElementById('erreur');
-    myErreur.innerHTML = "Veuillez entrer 2 lettres minimum pour le champ du prenom."; // on fait un innerhtml pour ajouter un msg erreur
-    myErreur.style.color = 'red'; // on ajoute un style
-    // e.preventDefault();
+    if (email.value == "") {      
+      myError2.innerHTML = "Veuillez entrer un email valide."; 
+      myError2.style.color = 'red';      
+    }  
+    else {
+      myError2.innerHTML = ""; 
+    }
+  //Date de naissance- birthdate
+  if (birthdate.value == "") {      
+    myError3.innerHTML = "Vous devez entrer votre date de naissance."; 
+    myError3.style.color = 'red'; 
+  } 
+  else {
+    myError3.innerHTML = ""; 
   }
+  //Tournois -quantity     
+  if (quantity.value == "") {        
+    myError4.innerHTML = "Vous devez saisir un nombre."; 
+    myError4.style.color = 'red';    
+  }  
+  else {
+    myError4.innerHTML = ""; 
+  } //choix de la ville
+  if(document.getElementById('location1').checked) {
+    document.getElementById("errormsg").innerHTML
+    = document.getElementById("location1").value;
+  }
+  else if(document.getElementById('location2').checked) {
+    document.getElementById("errormsg").innerHTML
+    = document.getElementById("location2").value;  
+  }
+  else if(document.getElementById('location3').checked) {
+    document.getElementById("errormsg").innerHTML
+    = document.getElementById("location3").value;
+  }
+  else if(document.getElementById('location4').checked) {
+    document.getElementById("errormsg").innerHTML
+    = document.getElementById("location4").value;
+  }
+  else if(document.getElementById('location5').checked) {
+    document.getElementById("errormsg").innerHTML
+    = document.getElementById("location5").value;
+  }
+  else if(document.getElementById('location6').checked) {
+    document.getElementById("errormsg").innerHTML
+    = document.getElementById("location6").value;
+  }
+  else {
+    document.getElementById("errormsg").innerHTML
+    = "Veuillez selectionner une ville";
+  }  //Conditions et informations
 
-});
-
-const form = document.getElementById("reserve") 
-document.getElementById("reserve").addEventListener("submit", function(e) {
- e.preventDefault();
-   alert('Merci! Votre réservation a été reçue.');
- });
-
-//valider input radio option 1
-// function validate(){
-//   let valid = false;
-//   let ville = document.form.location;
-//   for (let i = 0; i < length; i++){
-//     if(x[i].checked) {
-//       valid = true;
-//       break;
-//     }
-//   }
-//   if(valid) {
-//     alert("Vous avez choisi une ville");
-//    //erreur = "validé"
-//   }
-//   else {
-//     alert("Veuillez selectionner une ville");
-//     //erreur = "Veuillez selectionner une ville"
-//     return false;
-//   }
-
-// }
-//option 2
-function validate(){
-  let valid = false;
-  let ville = document.form.location;
-  for (let i = 0; i < ville.length; i++){
-    if(ville[i].checked == true) 
+  if(!selectionFinal.has("gameon"))
+  {
+    document.getElementById("errorMessage").style.visibility = "visible";
+    return false;      
+  }
+  else
+  {
+    document.getElementById("errorMessage").style.visibility = "hidden";
     return true;
-  }
-  document.getElementById("erreurcheck").innerHTML = "Veuillez choisir une ville"; //il a été créee ce div mais pas sur de la position
-  return false; 
-}
+  } 
+//   else
+//    {
+// alert('Merci! Votre réservation a été reçue.');
+//     } 
+
  
-
-// validation input check
-
-
-//function fermeture modal
-
-// document.addEventListener(
-//   "click",
-//   function(event) {
-//     if (
-//       event.target.matches(".close") ||
-//       !event.target.closest(".content")
-//     ) {
-//       closeModal()
-//     }
-//   },
-//   false
-// )
-
-// function closeModal() {
-//   document.querySelector(".content").style.display = "none"
-// }
-
-
-
-//Variables
-// let erreur;
-// let first = document.getElementById("first");
-// let last = document.getElementById("last");
-// let email = document.getElementById("email");
-// let birthdate = document.getElementById("birthdate");
-// let quantity = document.getElementById("quantity");
-
-// function validate(){
-//   document.getElementById("reserve").addEventListener("submit", function(e) {
-//     e.preventDefault();   
-    
-    //Conditions
-    
-//     if (!quantity.value) {
-//       erreur = "Pour le nombre de concours, une valeur numérique est necessaire.";
-     
-//     }
-//     if (!birthdate.value) {
-//       erreur = "Vous devez entrer votre date de naissance";
-      
-//      }
-//     if (!email.value) {
-//      erreur = "Veuillez renseigner un email";   
-      
-//     }
-//     if (!last.value) {
-//       erreur = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
-    
-//     }
-//     if (!first.value) {
-//       erreur = "Veuillez entrer 2 caractères ou plus pour le champ du prenom.";
-     
-//      }
+  
 //     if (erreur) {
 //       e.preventDefault();
 //      document.getElementById("erreur").innerHTML = erreur;
 //       return false;
 //     }  else {
 //     // alert('Merci! Votre réservation a été reçue.');
-//     }  
-//   });
-// }
+//     } 
+
+
+ });
+
+
+
+// validation input check
+
+
+//function fermeture modal
+
+
+
+
+ 

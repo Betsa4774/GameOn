@@ -187,7 +187,14 @@ main {
   padding: 15px 8%;
   margin: 15px auto;
 }
-
+#errormsg {
+  color:red ;
+  font-size:18px;
+  font-weight:bold;
+}
+#errorMessage {
+  visibility:hidden; color:red;
+  }
 label {
   font-family: var(--font-default);
   font-size: 17px;
