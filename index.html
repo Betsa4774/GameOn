@@ -16,7 +16,7 @@
   <body>
     <div class="topnav" id="myTopnav">
       <div class="header-logo">
-        <img alt="logo" src="Logo.png" width="auto" height="auto" /> <!--le width et height peivent disparaître-changer la place d'alt  ??-->
+        <img alt="logo" src="Logo.png" width="auto" height="auto" /> <!--le width et height peuvent disparaître-changer la place d'alt  ??-->
       </div>
       <div class="main-navbar">      
         <a href="#" class="active"><span>Accueil</span></a>
@@ -49,7 +49,8 @@
         <div id="content" class="content"> <!--ajouté id-->
           <span id="close" class="close"></span> <!--ajouté id-->       
           <div  class="modal-body">  <!--id ajouté-->     
-            <form name="reserve" action="index.html" method="get" id="reserve" onsubmit="return validate();"> <!--explication-->
+            <!-- <form name="reserve" action="index.html" method="get" id="reserve" onsubmit="return validate();"> -->
+              <form name="reserve" action="index.html" method="get" id="reserve"> <!--explication-->
               <div class="formData">
                 <label for="first">Prénom</label><br> 
                 <input class="text-control" type="text" id="first" name="first" placeholder="ex: Betsabé" minlength="2"  /><br> <!--erreur pas de /devant >-->
@@ -79,7 +80,7 @@
               <p class="text-label">Quelles villes ?</p>
               <div id="errormsg"></div>
               <div class="formData">
-                <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
+                <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" checked />
                 <label class="checkbox-label" for="location1">
                   <span class="checkbox-icon"></span>
                   New York</label>
@@ -110,19 +111,19 @@
                 <div  id="errorMessage">
                   Veuillez selectionner au moins les conditions d'utilisation.
                 </div>
-                <input class="checkbox-input" type="checkbox" name="gameon" id="checkbox1" checked/>
-                <label class="checkbox2-label" for="checkbox1" required>
+                <input class="checkbox-input" type="checkbox" name="conditions" id="checkbox1" checked />
+                <label class="checkbox2-label" for="checkbox1" required> <!--error required not attribute de label-->
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label> <br>
-                <input class="checkbox-input" type="checkbox" name="gameon" id="checkbox2"/>
+                <input class="checkbox-input" type="checkbox" name="inform" id="checkbox2"/>
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
-                  Je souhaite être prévenu des prochains évènements.<!--je de plus-->
+                  Je souhaite être prévenu des prochains évènements.
                 </label> <br>
               </div>
               <!--Bouton pour envoyer-->
-              <input class="btn-submit" type="submit" class="button" value="C'est parti"/>  <!--class repetée??-->          
+              <input id="validation" class="btn-submit" type="submit" class="button" value="C'est parti"/>  <!--class repetée??-->          
             </form>
             <!-- <p id="erreur"></p>  se puede borrar despues-->
           </div>          
