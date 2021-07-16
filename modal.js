@@ -44,43 +44,72 @@ formData.forEach((input)=> input.addEventListener('change', getDataInput));
 function getDataInput (event){
   console.log(event.target.value);
 
+  // if(event.target.id === 'first'&& event.target.value.match(textFormat)){
+  //   first.style.border = "2px green solid";
+  //   myError.innerHTML = "";
+  //   console.log("c'est green");
+  // }else if(event.target.type ==="first" &&!event.target.value.match(texteFormat)){
+  //   myError.innerHTML = "Veuillez entrer 2 lettres minimum pour le prenom."; 
+  //   myError.style.color = 'red';
+  //   first.style.border = "2px red solid"; 
+  // }
   if(event.target.id === 'first'&& event.target.value.match(textFormat)){
     first.style.border = "2px green solid";
     myError.innerHTML = "";
     console.log("c'est green");
-  }else {
+  }else if (event.target.type === "first" && !event.target.value.match(textFormat)) {
     myError.innerHTML = "Veuillez entrer 2 lettres minimum pour le prenom."; 
     myError.style.color = 'red';
     first.style.border = "2px red solid"; 
   }
 
+  // if(event.target.id === 'last'&& event.target.value.match(textFormat)){
+  //   last.style.border = "2px green solid";
+  //   myError1.innerHTML = "";
+  //   console.log("c'est green");
+  // }else if(event.target.type ==="last" && !event.target.value.match(textFormat)){
+  //   myError1.innerHTML = "Veuillez entrer 2 lettres minimum pour le nom."; 
+  //   myError1.style.color = 'red';
+  //   last.style.border = "2px red solid"; 
+  // }
+
   if(event.target.id === 'last'&& event.target.value.match(textFormat)){
     last.style.border = "2px green solid";
     myError1.innerHTML = "";
     console.log("c'est green");
-  }else {
+  }else if (event.target.type === "last" && !event.target.value.match(textFormat)){
     myError1.innerHTML = "Veuillez entrer 2 lettres minimum pour le nom."; 
     myError1.style.color = 'red';
     last.style.border = "2px red solid"; 
   }
 
+  // if(event.target.id === 'email'&& event.target.value.match(emailFormat)){
+  //   email.style.border = "2px green solid";
+  //   myError2.innerHTML = "";
+  //   console.log("c'est green");
+
+  // }else if(event.target.type ==="email" && !event.target.value.match(emailFormat)) {
+  //   myError2.innerHTML = "Veuillez entrer un email valide."; 
+  //   myError2.style.color = 'red';
+  //   email.style.border = "2px red solid"; 
+  // }
   if(event.target.id === 'email'&& event.target.value.match(emailFormat)){
-    email.style.border = "1px green solid";
+    email.style.border = "2px green solid";
     myError2.innerHTML = "";
     console.log("c'est green");
 
-  }else {
+  }else if (event.target.type === "email" && !event.target.value.match(emailFormat)) {
     myError2.innerHTML = "Veuillez entrer un email valide."; 
     myError2.style.color = 'red';
     email.style.border = "2px red solid"; 
   }
-
+  
   if(event.target.id === 'birthdate'&& event.target.value.match(dateFormat)){
     birthdate.style.border = "2px green solid";
     myError3.innerHTML = "";
     console.log("c'est green");
 
-  }else {
+  }else if(event.target.id === 'birthdate'&& !event.target.value.match(dateFormat)){
     myError3.innerHTML = "Veuillez entrer votre date de naissance."; 
     myError3.style.color = 'red';
     birthdate.style.border = "2px red solid"; 
@@ -91,18 +120,18 @@ function getDataInput (event){
     myError4.innerHTML = "";
     console.log("c'est green");
 
-  }else {
+  }else  if(event.target.id === 'quantity'&& !event.target.value.match(numberFormat))  {
     myError4.innerHTML = "Veuillez saisir un numéro."; 
     myError4.style.color = 'red';
     quantity.style.border = "2px red solid"; 
   }
 
-  if(event.target.name === 'location'){
+  // if(event.target.name === 'location'){
     
-    console.log("telle ville est  "+ event.target.value);
+  //   console.log("telle ville est  "+ event.target.value);
     
 
-  }
+  // }
 
 }
 
