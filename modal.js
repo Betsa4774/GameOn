@@ -116,7 +116,7 @@ function getDataInput (event){
       console.log(event.target.value);
       return trueValidation6 = false;
     }
-    else if (event.target.checked) {
+    else if (event.target.checked && event.target.value === "on" ) {
       event.target.value = "ok";
       console.log(event.target.value);
       errorFinal.textContent = " ";
@@ -137,7 +137,7 @@ validation.addEventListener("click", function validateData(event) {
   if (trueValidation1 === true && trueValidation2 === true && trueValidation3 === true && trueValidation4 === true
     && trueValidation5 === true && trueValidation6 === true) {
     console.log("c'est parti");
-    messageReussite.textContent = "Votre réservation à été bien recue. Fermez la modal";
+    messageReussite.textContent = "Votre réservation à été bien reçue. Fermez la modal, s'il vous plaît.";
 
     }
   })
