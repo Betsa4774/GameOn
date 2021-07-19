@@ -187,14 +187,18 @@ main {
   padding: 15px 8%;
   margin: 15px auto;
 }
-#errormsg {
+#errorFinal {
   color:red ;
-  font-size:18px;
-  font-weight:bold;
+  font-size: 1rem;
+  font-weight: bold;
 }
-#errorMessage {
-  visibility:hidden; color:red;
-  }
+#errorMessage {  
+  visibility:hidden; color:red; 
+}
+#messageReussite {
+  color: rgb(9, 209, 9);
+}
+
 label {
   font-family: var(--font-default);
   font-size: 17px;

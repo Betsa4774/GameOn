@@ -20,9 +20,9 @@ function launchModal() {
   modalbg.style.display = "block";
 }
 
-//ici commence l'excercise appelé par id sur le form)
+//ici commence l'excercise 
 
-// Pattern des différents types 
+//Pattern des différents types 
 let textFormat = /^[a-zA-Z\é\è\-\^\']{2,30}$/; 
 let emailFormat = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/; 
 let dateFormat = /((?:19|20)[0-9][0-9])-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/; 
@@ -40,65 +40,47 @@ const myError2 = document.getElementById('error2');
 const myError3 = document.getElementById('error3');
 const myError4 = document.getElementById('error4');
 
+let trueValidation1;
+let trueValidation2;
+let trueValidation3;
+let trueValidation4;
+let trueValidation5;
+let trueValidation6;
+
+// récupérer les données des input modal event
 formData.forEach((input)=> input.addEventListener('change', getDataInput));
 function getDataInput (event){
   console.log(event.target.value);
-
-  // if(event.target.id === 'first'&& event.target.value.match(textFormat)){
-  //   first.style.border = "2px green solid";
-  //   myError.innerHTML = "";
-  //   console.log("c'est green");
-  // }else if(event.target.type ==="first" &&!event.target.value.match(texteFormat)){
-  //   myError.innerHTML = "Veuillez entrer 2 lettres minimum pour le prenom."; 
-  //   myError.style.color = 'red';
-  //   first.style.border = "2px red solid"; 
-  // }
+    
   if(event.target.id === 'first'&& event.target.value.match(textFormat)){
     first.style.border = "2px green solid";
     myError.innerHTML = "";
     console.log("c'est green");
-  }else if (event.target.type === "first" && !event.target.value.match(textFormat)) {
+    return trueValidation1 = true;
+  }else if (event.target.id === "first" && !event.target.value.match(textFormat)) {
     myError.innerHTML = "Veuillez entrer 2 lettres minimum pour le prenom."; 
     myError.style.color = 'red';
     first.style.border = "2px red solid"; 
-  }
-
-  // if(event.target.id === 'last'&& event.target.value.match(textFormat)){
-  //   last.style.border = "2px green solid";
-  //   myError1.innerHTML = "";
-  //   console.log("c'est green");
-  // }else if(event.target.type ==="last" && !event.target.value.match(textFormat)){
-  //   myError1.innerHTML = "Veuillez entrer 2 lettres minimum pour le nom."; 
-  //   myError1.style.color = 'red';
-  //   last.style.border = "2px red solid"; 
-  // }
+  }  
 
   if(event.target.id === 'last'&& event.target.value.match(textFormat)){
     last.style.border = "2px green solid";
     myError1.innerHTML = "";
     console.log("c'est green");
-  }else if (event.target.type === "last" && !event.target.value.match(textFormat)){
+    return trueValidation2 = true;
+  }else if (event.target.id === "last" && !event.target.value.match(textFormat)){
     myError1.innerHTML = "Veuillez entrer 2 lettres minimum pour le nom."; 
     myError1.style.color = 'red';
     last.style.border = "2px red solid"; 
   }
 
-  // if(event.target.id === 'email'&& event.target.value.match(emailFormat)){
-  //   email.style.border = "2px green solid";
-  //   myError2.innerHTML = "";
-  //   console.log("c'est green");
-
-  // }else if(event.target.type ==="email" && !event.target.value.match(emailFormat)) {
-  //   myError2.innerHTML = "Veuillez entrer un email valide."; 
-  //   myError2.style.color = 'red';
-  //   email.style.border = "2px red solid"; 
-  // }
   if(event.target.id === 'email'&& event.target.value.match(emailFormat)){
     email.style.border = "2px green solid";
     myError2.innerHTML = "";
     console.log("c'est green");
+    return trueValidation3 = true;
 
-  }else if (event.target.type === "email" && !event.target.value.match(emailFormat)) {
+  }else if (event.target.id === "email" && !event.target.value.match(emailFormat)) {
     myError2.innerHTML = "Veuillez entrer un email valide."; 
     myError2.style.color = 'red';
     email.style.border = "2px red solid"; 
@@ -108,6 +90,7 @@ function getDataInput (event){
     birthdate.style.border = "2px green solid";
     myError3.innerHTML = "";
     console.log("c'est green");
+    return trueValidation4 = true;
 
   }else if(event.target.id === 'birthdate'&& !event.target.value.match(dateFormat)){
     myError3.innerHTML = "Veuillez entrer votre date de naissance."; 
@@ -119,72 +102,168 @@ function getDataInput (event){
     quantity.style.border = "2px green solid";
     myError4.innerHTML = "";
     console.log("c'est green");
+    return trueValidation5 = true;
 
   }else  if(event.target.id === 'quantity'&& !event.target.value.match(numberFormat))  {
     myError4.innerHTML = "Veuillez saisir un numéro."; 
     myError4.style.color = 'red';
     quantity.style.border = "2px red solid"; 
   }
+  if (event.target.id === "checkbox1") {
 
-  // if(event.target.name === 'location'){
-    
-  //   console.log("telle ville est  "+ event.target.value);
-    
-
-  // }
-
+    if (!event.target.checked) {
+      event.target.value = "off";
+      console.log(event.target.value);
+      return trueValidation6 = false;
+    }
+    else if (event.target.checked) {
+      event.target.value = "ok";
+      console.log(event.target.value);
+      errorFinal.textContent = " ";
+      return trueValidation6 = true;
+    }
+  }
 }
 
-const reserve = document.getElementById("reserve");
-// reserve.textContent = "Votre message a été envoyé" 
+const inputsRecuperation = document.querySelectorAll('input[required]');
+const validation = document.getElementById('validation');
+let errorFinal = document.getElementById("errorFinal");
 
-const condition = document.getElementById('checkbox1');
-const btnValidation = document.getElementById('validation');
-
-  btnValidation.addEventListener("click", (e) =>{
-    e.preventDefault();
-    first.textContent = " ";
-    last.textContent = " ";
-    email.textContent = "Votre message est bien envoyé";
-    birthdate.textContent = " ";
-    quantity.textContent = " ";
+validation.addEventListener("click", function validateData(event) {
+  event.preventDefault();
+  if (trueValidation6 === false){
+    errorFinal.textContent = "Veuillez cocher les conditions";
+  }
+  if (trueValidation1 === true && trueValidation2 === true && trueValidation3 === true && trueValidation4 === true
+    && trueValidation5 === true && trueValidation6 === true) {
     console.log("c'est parti");
-      })
+    messageReussite.textContent = "Votre réservation à été bien recue. Fermez la modal";
 
- //reserve = document.getElementById('reserve'); 
-//  
-//reserve.addEventListener('submit',function(e) {
-  // Variables
-  
+    }
+  })
+// for (let inputRequired of inputsRecuperation){
+
+// if (inputRequired.style.border === "2px red solid"){
+//   console.log("il y a du rouge");
+//   // errorFinal.textContent ="Erreur dans la saisie";
+//   // inputRequired.after(infoRed);
+//   // alert("");
+// } else if (inputRequired.style.border === "2px green solid" && inputRequired.style.border === "2px red solid"){
+//   console.log("il y a un problème");
+//   alert("Une ou plusieurs saisies ne sont pas bonne");
+// } else if (inputRequired.style.border === ""){
+//   console.log("il y a un second problème");
+//   // errorFinal.textContent ="Le champs est vide";
+//   // inputRequired.after(infoEmpty);
+// } else if (inputRequired.style.border === "2px green solid"){
+//   console.log("c'est validé");
+// }
+// // console.log(inputRequired.style.border);
+// }
+// })
+
+// document.getElementById("validation").addEventListener("click", function(e) {
+//   e.preventDefault();
+// 	let errorFinal;
+//    	var inputs = this.getElementsByTagName("input");
  
+// 	for (var i = 0; i < inputs.length; i++) {
+// 		// console.log(inputs[i]);
+// 		if (!inputs[i].value) {
+// 			errorFinal = "Veuillez renseigner tous les champs";
+// 		}
+// 	}
+ 
+// 	if (errorFinal) {
+		
+// 		document.getElementById("errorFinal").innerHTML = errorFinal;
+// 		return false;
+// 	} else {
+// 		//alert('Merci! Votre réservation a été reçue.');
+//     console.log("Merci votre réservation a été reçue");
+// 	}
+ 
+ 
+// });
+// const reserve = document.getElementById("reserve");
+// // reserve.textContent = "Votre message a été envoyé" 
+
+// const btnValidation = document.getElementById('validation');
+
+//   btnValidation.addEventListener("click", (e) =>{
+//     e.preventDefault();
+//     first.textContent = " ";
+//     last.textContent = " ";
+//     email.textContent = "";//Votre message est bien envoyé
+//     birthdate.textContent = " ";
+//     quantity.textContent = " ";
+//     console.log("c'est parti");
+//       })
+
+  
+      // function validate(){
+      //   // si la valeur du champ prenom est non vide
+      //   if(document.formSaisie.reserve.value!= "") {
+      //     // les données sont ok, on peut envoyer le formulaire    
+      //     return true;
+      //   }
+      //   else {
+      //     // sinon on affiche un message
+      //     alert("Saisissez les champs vides");
+      //     // et on indique de ne pas envoyer le formulaire
+      //     return false;
+      //   }
+      // }
+
+// 1ére méthode 
+
+const close = document.getElementById('close');
+const bground = document.getElementById('bground');
+ 
+close.addEventListener("click", () => {
+  if(getComputedStyle(bground).display != "none"){
+   bground.style.display = "none";
+  }    
+  
+});
+
+
+// reserve = document.getElementById('reserve');  
+// reserve.addEventListener('submit',function(e) {  
+//   e.preventDefault();
+
+//   const first = document.getElementById('first'); 
+//   const last = document.getElementById('last');
+//   const email = document.getElementById('email');
+//   const birthdate = document.getElementById('birthdate');
+//   const quantity = document.getElementById('quantity');
+  
+//   const myError = document.getElementById('error');
+//   const myError1 = document.getElementById('error1');
+//   const myError2 = document.getElementById('error2');
+//   const myError3 = document.getElementById('error3');
+//   const myError4 = document.getElementById('error4');
+
+ // const selectionFinal = new FormData(document.querySelector("form"));
 
  
-  
- 
-
-  // const selectionFinal = new FormData(document.querySelector("form"));
- //reserve.addEventListener('submit',function(e) {
-   //e.preventDefault();
-  // if (first.value.match(textFormat)) {   
-  
-  //    first.style.border = " 5px green";
-  // }
-  // else {
-  //   //myError.innerHTML = "";
-  //   myError.innerHTML = "Veuillez entrer 2 lettres minimum pour le champ du prenom."; 
-  //   myError.style.color = 'red';
-  
-    
+  // //prenom
+  //   if (prenom.value == "") {      
+  //     myError.innerHTML = "Veuillez entrer minimum 2 caractères pour le prenom."; 
+  //     myError.style.color = 'red';      
+  //   }  
+  //   else {
+  //     myError.innerHTML = ""; 
+  //   }
   // }
   // nom
-  // if (last.value.match(textFormat)) {  
-  //   last.style.border = " 5px green";
-  // }  
-  // else {
-  //   //myError1.innerHTML = "";
-  //   myError1.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom."; 
-  //   myError1.style.color = 'red';  
-  // }
+  //   if (nom.value == "") {      
+  //     myError1.innerHTML = "Veuillez entrer minimum 2 caractères pour le nom."; 
+  //     myError1.style.color = 'red';      
+  //   }  
+  //   else {
+  //     myError1.innerHTML = ""; 
+  //   }
   // //email
   //   if (email.value == "") {      
   //     myError2.innerHTML = "Veuillez entrer un email valide."; 
@@ -247,24 +326,9 @@ const btnValidation = document.getElementById('validation');
   //   document.getElementById("errorMessage").innerHTML
   //   = document.getElementById("checkbox1").value;
   // }  
-// if (email.value == "") {      
-//       myError2.innerHTML = "Veuillez entrer un email valide."; 
-//       myError2.style.color = 'red';      
-//     }  
+// 
  
 //----});
-// 1ére méthode 
-
-const close = document.getElementById('close');
-const bground = document.getElementById('bground');
- 
-close.addEventListener("click", () => {
-  if(getComputedStyle(bground).display != "none"){
-   bground.style.display = "none";
-  }    
-  
-})
-  
 
 // 2émé méthode -on click 
 
@@ -285,5 +349,3 @@ close.addEventListener("click", () => {
 
 
 
-
- 
