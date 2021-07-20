@@ -194,6 +194,11 @@ main {
   font-size: 1rem;
   font-weight: bold;
 }
+#errorMsg {
+  color: red;
+  font-size: 1rem;
+  font-weight: bold;  
+}
 #errorMessage {  
   visibility:hidden; color:red; 
 }
