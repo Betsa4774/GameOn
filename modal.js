@@ -22,14 +22,14 @@ function launchModal() {
 
 //ici commence l'excercise 
 
-reserve = document.getElementById('reserve'); //on fait reserve et on rajoute un événement et 
+reserve = document.getElementById('reserve'); 
+//on fait reserve et on rajoute un événement et 
  //serà à la sumision de formulaire qu on voudra declencher une fonction et cette fonction on va lui passer l'événement en question
 //reserve = document.getElementById('reserve'); 
 //let compteur = 0
 
-reserve.addEventListener('submit',function(e) {
-  // Variables--//creation des variables et recuperations d'elles mêmes par document.get et son Id.
-  // ceci permet de récuperer le formulaire
+reserve.addEventListener('submit', function(e) {
+  //form.addEventListener('submit', () => validate())
 //Variables
   e.preventDefault();
   const first = document.getElementById('first'); 
@@ -37,26 +37,19 @@ reserve.addEventListener('submit',function(e) {
   const email = document.getElementById('email');
   const birthdate = document.getElementById('birthdate');
   const quantity = document.getElementById('quantity');
+  const conditions = document.getElementById('checkbox1');
+  console.log(conditions.checked)
   const myError = document.getElementById('error');
   const myError1 = document.getElementById('error1');
   const myError2 = document.getElementById('error2');
   const myError3 = document.getElementById('error3');
   const myError4 = document.getElementById('error4');
- 
-  // const location1 = document.getElementById('location1');
-  //  const location2 = document.getElementById('location2');
-  //  const location3 = document.getElementById('location3');
-  //  const location4 = document.getElementById('location4');
-  //  const location5 = document.getElementById('location5'); 
-  //  const location6 = document.getElementById('location6'); 
-  const selectionFinal = new FormData(document.querySelector("form"));
- let compteur = 0;
-    
+  
+  let compteur = 0;
+   //prenom 
   if (first.value == "") {   
     myError.innerHTML = "Veuillez entrer 2 lettres minimum pour le champ du prenom."; 
-    myError.style.color = 'red';
-
-    
+    myError.style.color = 'red';    
   }
   else { 
   compteur++ 
@@ -122,19 +115,18 @@ reserve.addEventListener('submit',function(e) {
     document.getElementById("errorMsg").innerHTML
     = "Veuillez selectionner une ville";
   } 
- //Conditions et informations. Esta parte esta mal, debo cambiarla
+ //Conditions et informations. 
 
-  if(!selectionFinal.has("gameon"))
-  {
-    document.getElementById("errorMessage").style.visibility = "visible";
-    return false;      
-  }
-  else
-  {
-    document.getElementById("errorMessage").style.visibility = "hidden";
-    return true;
+ if(!document.getElementById('checkbox1').checked) { 
+   document.getElementById("errorFinal").innerHTML 
+   = "Veuillez cochez les conditions d'utilisation";  
+}
+ else {
+    document.getElementById("messageReussite").innerHTML =
+    "Votre réservation à bien été reçue.";
+    
+    
   } 
- 
 });
 
  // 1ére méthode Close Modal
@@ -162,8 +154,40 @@ close.addEventListener("click", () => {
 // };
 // close.onclick = closeM;
 
+//  if(document.getElementById('conditions').checked) {
+//   document.getElementById("errorFinal").innerHTML
+//   = document.getElementById("").value;
+// }
+  // {
+  //   document.getElementById("errorMessage").style.visibility = "visible";
+  //   return false;      
+  // }
+  // else
+  // {
+  //   document.getElementById("errorMessage").style.visibility = "hidden";
+  //   return true;
+  // } 
+ 
 
-
+  // if(!selectionFinal.has("gameon"))
+  // {
+  //   document.getElementById("errorMessage").style.visibility = "visible";
+  //   return false;      
+  // }
+  // else
+  // {
+  //   document.getElementById("errorMessage").style.visibility = "hidden";
+  //   return true;
+  // } 
+ 
+  // const location1 = document.getElementById('location1');
+  //  const location2 = document.getElementById('location2');
+  //  const location3 = document.getElementById('location3');
+  //  const location4 = document.getElementById('location4');
+  //  const location5 = document.getElementById('location5'); 
+  //  const location6 = document.getElementById('location6'); 
+  //const selectionFinal = new FormData(document.querySelector("form")); // a borrar
+  
 
 
 
