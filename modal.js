@@ -26,10 +26,10 @@ reserve = document.getElementById('reserve');
 //on fait reserve et on rajoute un événement et 
  //serà à la sumision de formulaire qu on voudra declencher une fonction et cette fonction on va lui passer l'événement en question
 //reserve = document.getElementById('reserve'); 
-//let compteur = 0
 
 reserve.addEventListener('submit', function(e) {
-  //form.addEventListener('submit', () => validate())
+  
+ 
 //Variables
   e.preventDefault();
   const first = document.getElementById('first'); 
@@ -46,15 +46,16 @@ reserve.addEventListener('submit', function(e) {
   const myError4 = document.getElementById('error4');
   
   let compteur = 0;
-   //prenom 
+  //prenom 
   if (first.value == "") {   
-    myError.innerHTML = "Veuillez entrer 2 lettres minimum pour le champ du prenom."; 
+    myError.innerHTML = "Veuillez entrer 2 lettres minimum pour le champ du prenom.\n"; 
     myError.style.color = 'red';    
   }
   else { 
-  compteur++ 
+ 
     myError.innerHTML = ""; 
-  }
+    compteur++ 
+  }    
   // nom
   if (last.value == "") {  
     myError1.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom."; 
@@ -62,6 +63,7 @@ reserve.addEventListener('submit', function(e) {
   }  
   else {
     myError1.innerHTML = ""; 
+    compteur++
   }
   //email
     if (email.value == "") {      
@@ -70,6 +72,7 @@ reserve.addEventListener('submit', function(e) {
     }  
     else {
       myError2.innerHTML = ""; 
+      compteur++
     }
   //Date de naissance- birthdate
   if (birthdate.value == "") {      
@@ -77,7 +80,8 @@ reserve.addEventListener('submit', function(e) {
     myError3.style.color = 'red'; 
   } 
   else {
-    myError3.innerHTML = ""; 
+    myError3.innerHTML = "";
+    compteur++ 
   }
   //Tournois -quantity     
   if (quantity.value == "") {        
@@ -86,48 +90,67 @@ reserve.addEventListener('submit', function(e) {
   }  
   else {
     myError4.innerHTML = ""; 
+    compteur++
   } //choix de la ville
   if(document.getElementById('location1').checked) {
     document.getElementById("errorMsg").innerHTML
     = document.getElementById("location1").value;
+    compteur++
   }
   else if(document.getElementById('location2').checked) {
     document.getElementById("errorMsg").innerHTML
     = document.getElementById("location2").value;  
+    compteur++
   }
   else if(document.getElementById('location3').checked) {
     document.getElementById("errorMsg").innerHTML
     = document.getElementById("location3").value;
+    compteur++
   }
   else if(document.getElementById('location4').checked) {
     document.getElementById("errorMsg").innerHTML
     = document.getElementById("location4").value;
+    compteur++
   }
   else if(document.getElementById('location5').checked) {
     document.getElementById("errorMsg").innerHTML
     = document.getElementById("location5").value;
+    compteur++
   }
   else if(document.getElementById('location6').checked) {
     document.getElementById("errorMsg").innerHTML
     = document.getElementById("location6").value;
+    compteur++
   }
   else {
     document.getElementById("errorMsg").innerHTML
     = "Veuillez selectionner une ville";
   } 
  //Conditions et informations. 
-
+ reserve.textContent = "Close"
  if(!document.getElementById('checkbox1').checked) { 
    document.getElementById("errorFinal").innerHTML 
    = "Veuillez cochez les conditions d'utilisation";  
 }
  else {
     document.getElementById("messageReussite").innerHTML =
-    "Votre réservation à bien été reçue.";
-    
+    "Conditions acceptées.";
+    errorFinal.innerHTML = ""; 
+    compteur++
     
   } 
-});
+  console.log(compteur)
+  if (compteur === 7){
+    alert('Votre réservation à bien été reçue.')
+  }
+  reserve.addEventListener("click", () => {
+    if (reserve.textContent === "Close") {
+      if(getComputedStyle(bground).display != "none"){
+       bground.style.display = "none";
+      } 
+    }}
+  
+)});
 
  // 1ére méthode Close Modal
 
@@ -139,7 +162,15 @@ close.addEventListener("click", () => {
    bground.style.display = "none";
   }    
   
+
+
+  
 });
+
+
+
+
+
 //----});
 
 // 2émé méthode -on click 

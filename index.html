@@ -49,7 +49,7 @@
         <div id="content" class="content"> <!--ajouté id-->
           <span id="close" class="close"></span> <!--ajouté id-->       
           <div  class="modal-body"> 
-            <form name="reserve" action="index.html" method="get" id="reserve" onsubmit="return validate();">
+            <form name="reserve" action="index.html" method="get" id="reserve" > <!--onsubmit="return validate();"-->
               <!-- <form name="reserve" action="index.html" method="get" id="reserve"> explication -->
               <div class="formData">
                 <label for="first">Prénom</label><br> 
@@ -109,11 +109,12 @@
               <!--Conditions et inform à cocher-->
               <div class="formData">
                 <div  id="errorMessage">
-                  Veuillez selectionner au moins les conditions d'utilisation.
+                  <!-- Veuillez selectionner au moins les conditions d'utilisation. -->
                 </div>
                 <p id="errorFinal"></p> 
+                <p id="messageReussite"></p>
                 <input class="checkbox-input" type="checkbox" name="conditions" id="checkbox1"   />
-                <label class="checkbox2-label" for="checkbox1" required> <!--error required not attribute de label-->
+                <label class="checkbox2-label" for="checkbox1" > <!--error required not attribute de label-->
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label> <br>
@@ -125,9 +126,7 @@
               </div>
               <!--Bouton pour envoyer-->
               <input id="validation" class="btn-submit" type="submit" class="button" value="C'est parti"/>  <!--class repetée??-->          
-            </form>
-            
-            <p id="messageReussite"></p>
+            </form>            
           </div>          
         </div>
       </div>    
