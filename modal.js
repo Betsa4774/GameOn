@@ -127,32 +127,31 @@ reserve.addEventListener('submit', function(e) {
     = "Veuillez selectionner une ville";
   } 
  //Conditions et informations. 
- reserve.textContent = "Close"
+
  if(!document.getElementById('checkbox1').checked) { 
    document.getElementById("errorFinal").innerHTML 
    = "Veuillez cochez les conditions d'utilisation";  
-}
+  }
  else {
     document.getElementById("messageReussite").innerHTML =
     "Conditions acceptées.";
     errorFinal.innerHTML = ""; 
-    compteur++
-    
+    compteur++    
   } 
   console.log(compteur)
   if (compteur === 7){
-    alert('Votre réservation à bien été reçue.')
+   // alert('Votre réservation à bien été reçue.')
+    reserve.textContent = "Votre reservation a bien été reçue"
   }
-  reserve.addEventListener("click", () => {
-    if (reserve.textContent === "Close") {
+  reserve.addEventListener("click", () => { //letrero 
+   if (reserve.textContent === "Close") {
       if(getComputedStyle(bground).display != "none"){
        bground.style.display = "none";
       } 
-    }}
-  
-)});
+  } })
+  });
 
- // 1ére méthode Close Modal
+// 1ére méthode Close Modal
 
 const close = document.getElementById('close');
 const bground = document.getElementById('bground');
@@ -160,12 +159,10 @@ const bground = document.getElementById('bground');
 close.addEventListener("click", () => {
   if(getComputedStyle(bground).display != "none"){
    bground.style.display = "none";
-  }    
-  
-
-
-  
+  }     
 });
+
+
 
 
 
