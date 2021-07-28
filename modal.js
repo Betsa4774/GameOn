@@ -76,8 +76,7 @@ reserve.addEventListener('submit', function(e) {
       compteur++
     }
   //Date de naissance- birthdate
-  if (birthdate.value == "") {      
-    
+  if (birthdate.value == "") {       
     error3.textContent ="Veuillez entrer votre date de naissance."
     myError3.style.color = 'red'; 
   } 
@@ -86,8 +85,7 @@ reserve.addEventListener('submit', function(e) {
     compteur++ 
   }
   //Tournois -quantity     
-  if (quantity.value == "") {        
-    
+  if (quantity.value == "") {       
     error4.textContent ="Vous devez saisir un nombre."
     myError4.style.color = 'red';    
   }  
@@ -97,38 +95,35 @@ reserve.addEventListener('submit', function(e) {
   } //choix de la ville
   if(document.getElementById('location1').checked || document.getElementById('location2').checked || 
     document.getElementById('location3').checked ||document.getElementById('location4').checked||document.getElementById('location5').checked||document.getElementById('location6').checked) {
-    
-      compteur++
+    compteur++
   } 
   else {
-    
+
     errorMsg.textContent ="Vous devez saisir une ville."
     errorMsg.style.color = 'red'; 
   }   
  //Conditions et informations. 
 
- if(!document.getElementById('checkbox1').checked) { 
-  
+ if(!document.getElementById('checkbox1').checked) {   
   errorFinal.textContent = "Veuillez cocher les conditions d'utilisation" 
   errorFinal.style.color = 'red'; 
   }
- else {
-  
+ else {  
     compteur++    
   } 
   console.log(compteur)
   if (compteur === 7){
    reserve.textContent = "Votre reservation a bien été reçue";
-   document.getElementById("bground").reset();  
-   //location.reload();
+   document.getElementById("reserve").reset();  
+   location.reload();
 
   }
-  reserve.addEventListener("click", () => { //letrero 
+  reserve.addEventListener("click", () => { //msg reussite et fermeture 
    if (reserve.textContent === "Close") {
       if(getComputedStyle(bground).display != "none"){
        bground.style.display = "none";
-       //document.getElementById("bground").reset();
-       location.reload();
+        // document.getElementById("reserve").reset();
+        // location.reload();
   
       } 
   } })
