@@ -93,9 +93,11 @@ reserve.addEventListener('submit', function(e) {
    myError4.innerHTML = ""; 
     compteur++
   } //choix de la ville
+    errorMsg.innerHTML = "";
   if(document.getElementById('location1').checked || document.getElementById('location2').checked || 
     document.getElementById('location3').checked ||document.getElementById('location4').checked||document.getElementById('location5').checked||document.getElementById('location6').checked) {
-    compteur++
+    
+      compteur++
   } 
   else {
 
@@ -103,31 +105,44 @@ reserve.addEventListener('submit', function(e) {
     errorMsg.style.color = 'red'; 
   }   
  //Conditions et informations. 
-
+ 
  if(!document.getElementById('checkbox1').checked) {   
   errorFinal.textContent = "Veuillez cocher les conditions d'utilisation" 
   errorFinal.style.color = 'red'; 
   }
- else {  
+ else { 
+  errorFinal.innerHTML = ""; 
     compteur++    
   } 
   console.log(compteur)
   if (compteur === 7){
-   reserve.textContent = "Votre reservation a bien été reçue";
-   document.getElementById("reserve").reset();  
-   location.reload();
-
-  }
+    reserve.textContent = "Votre reservation a bien été reçue";
+    document.getElementById("reserve").reset();
+    delayedClose();
+   } 
+     function delayedClose() {
+         window.setTimeout(reloadPage, 3000);
+     }
+ 
+     function reloadPage() {
+         location.reload();
+     }
+  // if (compteur === 7){
+  //  reserve.textContent = "Votre réservation a bien été reçue";
+  //  location.reload();   
+     
+  // }
+  
   reserve.addEventListener("click", () => { //msg reussite et fermeture 
-   if (reserve.textContent === "Close") {
+   if (reserve.textContent === "Votre réservation a bien été reçue") {
       if(getComputedStyle(bground).display != "none"){
        bground.style.display = "none";
-        // document.getElementById("reserve").reset();
-        // location.reload();
-  
+       e.preventDefault();      
+      
+
       } 
-  } })
-  });
+  }})
+});
 
 // 1ére méthode Close Modal
 
