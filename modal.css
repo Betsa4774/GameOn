@@ -189,23 +189,7 @@ main {
   padding: 15px 8%;
   margin: 15px auto;
 }
-/* #errorFinal {
-  color:red ;
-  font-size: 1rem;
-  font-weight: bold;
-}
-#errorMsg {
-  color: red;
-  font-size: 1rem;
-  font-weight: bold;  
-}
-#errorMessage {  
-  visibility:hidden; color:red; 
-}
-#messageReussite {
-  color: rgb(117, 178, 236);
-  font-size: 1rem;
-} */
+
 
 label {
   font-family: var(--font-default);
@@ -245,12 +229,7 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
+
 .checkbox-label,
 .checkbox2-label {
   position: relative;
