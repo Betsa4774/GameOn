@@ -39,27 +39,31 @@
         </div>
         <div class="hero-img">
           <img src="./bg_img.jpg" alt="img"/>     
-        </div>   
+        </div>  
+        <button class="btn-signup modal-btn">
+          je m'inscris
+        </button> 
       </div> 
      <!--modal-inscription--> 
       <div  id="bground"  class="bground"> 
         <div id="content" class="content"> 
           <span id="close" class="close"></span>     
-          <div  class="modal-body"> 
+          <div  class="modal-body">
+            <!-- <input id="validation" class="btn-submit button" type="submit"   value="close"/>   -->
             <form name="reserve" action="index.html" method="get" id="reserve" >             
               <div class="formData">
                 <label for="first">Prénom</label><br> 
-                <input class="text-control" type="text" id="first" name="first" placeholder="ex: Betsabé" minlength="2" /><br> <!--erreur pas de /devant >-->
+                <input class="text-control" type="text" id="first" name="first" placeholder="ex: Betsabé"/><br> <!--erreur pas de /devant >-->
                 <div id="error"></div> 
               </div>
               <div class="formData">
                 <label for="last">Nom</label><br>
-                <input class="text-control" type="text" id="last" name="last"  placeholder="ex: Orihuela" minlength="2" /><br> <!--erreur pas de /-->
+                <input class="text-control" type="text" id="last" name="last"  placeholder="ex: Orihuela" /><br> <!--erreur pas de /-->
                 <div id="error1"></div>
               </div>
               <div class="formData">
                 <label for="email">E-mail</label><br>
-                <input class="text-control" type="email" id="email" name="email" placeholder="ex: bets@yahoo.com" /><br> <!--pas de /-->
+                <input class="text-control" type="text" id="email" name="email" placeholder="ex: bets@yahoo.com" /><br> <!--pas de /-->
                 <div id="error2"></div>
               </div>
               <div class="formData">
@@ -116,13 +120,16 @@
                 Je souhaite être prévenu des prochains évènements.
                 </label> <br>
                 <!--Bouton pour envoyer-->
-                <input id="validation" class="btn-submit button" type="submit"   value="C'est parti"/>       
+                <input id="validation" class="btn-submit button" type="submit"   value="C'est parti"/> 
+                <div id="messageReussite"></div>
               </div>          
-            </form>            
-          </div>          
+            </form> 
+            <button name="btn-Close" id="btn-Close"  class="btn-close" type="submit" onclick=" reloadPage(); ">Close</button>           
+          </div>  
+          <!-- <input id="validation" class="btn-submit button" type="submit"   value="close"/>       see          -->
         </div>
       </div>    
-    </main>    
+    </main>        
     <footer>
       <p class="copyrights"> Copyright 2014 - 2020, GameOn Inc.</p> 
     </footer>

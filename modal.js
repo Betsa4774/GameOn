@@ -11,9 +11,12 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
+// const btnClose = document.querySelectorAll(".btn-Close");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// btnClose.forEach()
+
 
 // launch modal form
 function launchModal() {
@@ -21,12 +24,23 @@ function launchModal() {
 }
 
 //ici commence l'excercise 
+// Création du btn Close
+// const btnClose = document.createElement("input");
+// btnClose.classList.add("btn-submit", "button");
+// btnClose.type = "submit";
+// btnClose.value = "Close";
+
+
+// const btnClose = document.createElement('button');
+// btnClose.innertext="Close";
+//  document.body.appendChild(btnClose);
+//  btnClose.addEventListener('click') => {});
+
+
 
 reserve = document.getElementById('reserve'); 
-
 reserve.addEventListener('submit', function(e) {
-  
- 
+   
 //Variables
   e.preventDefault();
   const first = document.getElementById('first'); 
@@ -41,74 +55,93 @@ reserve.addEventListener('submit', function(e) {
   const myError2 = document.getElementById('error2');
   const myError3 = document.getElementById('error3');
   const myError4 = document.getElementById('error4');
-  //const errorMsg = document.getElementsById('errorMsg');
+  //  const msgReussite = document.getElementById('msgReussite');
+  
+
+  // Pattern des différents types 
+  let textFormat = /^[a-zA-Z\é\è\-\^\']{2,30}$/; 
+  let emailFormat = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;  
+  // let dateFormat = /((?:19|20)[0-9][0-9])-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/; 
+  // let numberFormat = /^[0-9]{1,3}$/;
 
   let compteur = 0;
   //prenom 
-  if (first.value == "") {   
-    
-    error.textContent = "Veuillez entrer 2 lettres minimum pour le champ du prenom."
+  if (first.value == "" || textFormat.test(first.value) == false) {  
+    first.style.border = "1px red solid";
+    error.textContent = "Veuillez remplir le champ avec min 2 lettres."
     myError.style.color = 'red';  
-  }
+    myError.style.fontSize = '0.6em'    
+   }
   else {  
     myError.innerHTML = ""; 
+    first.style.border = "2px green solid";   
     compteur++ 
   }    
   // nom
-  if (last.value == "") {  
-    
-    error1.textContent = "Veuillez entrer 2 lettres minimum pour le champ du nom."
+  if (last.value == "" || textFormat.test(last.value) == false) {  
+    last.style.border = "2px red solid";    
+    error1.textContent = "Veuillez remplir le champ avec min 2 lettres."
     myError1.style.color = 'red';
-    
-  }  
+    myError1.style.fontSize = '0.6em';    
+  } 
   else {
     myError1.innerHTML = ""; 
+    last.style.border = "2px green solid";
     compteur++
   }
-  //email
-    if (email.value == "") {      
-      
-      error2.textContent ="Veuillez entrer un email valide."
-      myError2.style.color = 'red';
-    }  
+  //email 
+  if (email.value == "" || emailFormat.test(email.value) == false) {          
+    //  if (email.value == "" || emailFormat.test(document.getElementById(email).value == false)) {    
+    email.style.border = "2px red solid";
+    error2.textContent = "Veuillez entrer un email valide."
+    myError2.style.color = 'red';
+    myError2.style.fontSize = '0.6em';   
+  }  
     else {
-     myError2.innerHTML = ""; 
-      compteur++
+    myError2.innerHTML = ""; 
+    email.style.border = "2px green solid";
+    compteur++
     }
   //Date de naissance- birthdate
-  if (birthdate.value == "") {       
+  if (birthdate.value == "")  { 
+    birthdate.style.border = "2px red solid";           
     error3.textContent ="Veuillez entrer votre date de naissance."
     myError3.style.color = 'red'; 
+    myError3.style.fontSize = '0.6em';
   } 
   else {
     myError3.innerHTML = "";
+    birthdate.style.border = "2px green solid";
     compteur++ 
   }
   //Tournois -quantity     
-  if (quantity.value == "") {       
+  if (quantity.value == "") {   
+    quantity.style.border = "2px red solid";    
     error4.textContent ="Vous devez saisir un nombre."
     myError4.style.color = 'red';    
+    myError4.style.fontSize = '0.6em';
   }  
   else {
    myError4.innerHTML = ""; 
+   quantity.style.border = "2px green solid";
     compteur++
   } //choix de la ville
     errorMsg.innerHTML = "";
   if(document.getElementById('location1').checked || document.getElementById('location2').checked || 
     document.getElementById('location3').checked ||document.getElementById('location4').checked||document.getElementById('location5').checked||document.getElementById('location6').checked) {
-    
-      compteur++
+    compteur++
   } 
-  else {
-
+  else {   
     errorMsg.textContent ="Vous devez saisir une ville."
     errorMsg.style.color = 'red'; 
+    errorMsg.style.fontSize = '0.6em';
   }   
  //Conditions et informations. 
  
  if(!document.getElementById('checkbox1').checked) {   
   errorFinal.textContent = "Veuillez cocher les conditions d'utilisation" 
   errorFinal.style.color = 'red'; 
+  errorFinal.style.fontSize = '0.6em';
   }
  else { 
   errorFinal.innerHTML = ""; 
@@ -116,39 +149,42 @@ reserve.addEventListener('submit', function(e) {
   } 
   console.log(compteur)
   if (compteur === 7){
-    reserve.textContent = "Votre reservation a bien été reçue";
+    reserve.innerHTML = " Votre reservation <br> a  bien été reçue";
+    // reserve.style = "vertical-align: middle";
+    reserve.style = "display: flex;  justify-content: center; margin-top: 250px"; 
+    
+
     document.getElementById("reserve").reset();
-    delayedClose();
-   } 
-     function delayedClose() {
-         window.setTimeout(reloadPage, 3000);
-     }
+     delayedClose();
+  } 
+  function delayedClose() {
+    window.setTimeout(reloadPage, 3000);    
+  }
  
-     function reloadPage() {
-         location.reload();
-     }
-  // if (compteur === 7){
-  //  reserve.textContent = "Votre réservation a bien été reçue";
-  //  location.reload();   
-     
-  // }
-  
+  function reloadPage() {
+    location.reload();
+  } 
   reserve.addEventListener("click", () => { //msg reussite et fermeture 
-   if (reserve.textContent === "Votre réservation a bien été reçue") {
+   if (reserve.innerHTML === "Votre réservation a bien été reçue") {
       if(getComputedStyle(bground).display != "none"){
        bground.style.display = "none";
        e.preventDefault();      
-      
-
       } 
-  }})
+  } })
 });
 
-// 1ére méthode Close Modal
+// Close Modal
 
 const close = document.getElementById('close');
+const btnClose = document.getElementById('btn-Close');
 const bground = document.getElementById('bground');
- 
+
+btnClose.addEventListener("click", () => {
+  if(getComputedStyle(bground).display != "none"){
+   bground.style.display = "none";
+  }     
+});
+
 close.addEventListener("click", () => {
   if(getComputedStyle(bground).display != "none"){
    bground.style.display = "none";

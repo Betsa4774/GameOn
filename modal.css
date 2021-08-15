@@ -40,7 +40,7 @@ img {
     float: left;
 }
 .main-navbar {
-    float: right;
+  float: right;
 }
 .topnav a {
   float: left;
@@ -65,10 +65,10 @@ img {
   color: #ffffff;
   border-radius: 15px;
 }
-
 .topnav .icon {
   display: none;
 }
+
 
 @media screen and (max-width: 768px) {
   .topnav a {display: none;}
@@ -93,14 +93,14 @@ img {
 }
 
 
-
- @media screen and (max-width: 540px) {
+@media screen and (max-width: 540px) {
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
     margin-top: -15px;
   }
+
 } 
 
 main {
@@ -116,6 +116,7 @@ main {
 
 
 }
+
 
 .modal-btn {
   font-size: 145%;
@@ -188,7 +189,11 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
+  height: 775px; 
 }
+/* .modal-body  > .btn-close {
+opacity: 1;
+} */
 
 
 label {
@@ -201,8 +206,9 @@ label {
 input {
   padding: 8px;
   border: 0.8px solid #ccc;
-  outline: none;
+  outline: none;  
 }
+
 .text-control {
   margin: 0;
   padding: 8px;
@@ -320,7 +326,8 @@ input {
   transform: rotate(-45deg);
 }
 .btn-submit,
-.btn-signup {
+.btn-signup
+{
   background: #fe142f;
   display: block;
   margin: 0 auto;
@@ -331,6 +338,21 @@ input {
   cursor: pointer;
   border: 0;
 }
+.btn-close {
+  background: #fe142f;
+  display: block;
+  margin: 200px auto 0px;
+  /* margin-top: 80px; */
+  border-radius: 7px;
+  font-size: 1rem;
+  padding: 12px 82px;
+  color: #fff;
+  cursor: pointer;
+  border: 0;
+  /* opacity: 0; */
+}
+
+
 /* custom select styles */
 .custom-select {
   position: relative;
@@ -471,13 +493,48 @@ input {
 .hero-section > .btn-signup {
   display: none;
 }
-/* #erreur {
-  color: #d81b1c
-} */
+
 footer {
   padding-left: 2vw;
   padding-right: 2vw;
   margin: 0 20px;
+}
+@media screen and (max-width: 767px) {/*mobile*/
+ h1.hero-headline {
+    font-size: 1.8rem;
+    white-space: normal;
+  } 
+  p.hero-text {  
+    width: 72% ;
+    font-size: 0.4em;    
+    white-space: normal;
+  }
+  
+  .copyrights {   
+    font-size: 0.9rem;
+  }
+  .checkbox-label,
+  .checkbox2-label {  
+    margin-left: 30px;
+    font-size: 9px;  
+  }
+  .checkbox-label .checkbox-icon,
+  .checkbox2-label .checkbox-icon {
+    display: block;
+    width: 15px;
+    height: 15px;  
+    position: absolute;
+    left: -30px;  
+  }
+  img {
+    padding-top: 1rem;
+    width :50%;
+    
+  }
+  .topnav a.icon {
+    padding-top: 0px;
+  }
+   
 }
 @media screen and (max-width: 800px) {
   .hero-section {
@@ -516,6 +573,7 @@ footer {
     margin-top: 50px;
     text-align: center;
   }
+  
 }
 
 @keyframes modalopen {
