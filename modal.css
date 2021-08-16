@@ -191,9 +191,6 @@ main {
   margin: 15px auto;
   height: 750px; 
 }
-/* .modal-body  > .btn-close {
-opacity: 1;
-} */
 
 
 label {
@@ -341,7 +338,7 @@ input {
 .btn-close {
   background: #fe142f;
   display: block;
-  margin: 300px auto 0px;  
+  margin: 280px auto 0px;  
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
@@ -530,13 +527,9 @@ footer {
     
   }
   .topnav a.icon {
-    padding-top: 0px;
+    padding-top: 10px;
   }
-  /* .btn-submit,
-  .btn-signup
-{
-  margin: 50px auto 0; 
-}  */
+  
 .btn-close {
 
   margin: 300px auto 0px;  

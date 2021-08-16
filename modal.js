@@ -11,11 +11,9 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-// const btnClose = document.querySelectorAll(".btn-Close");
 
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
-// btnClose.forEach()
 
 
 // launch modal form
@@ -24,19 +22,6 @@ function launchModal() {
 }
 
 //ici commence l'excercise 
-// Création du btn Close
-// const btnClose = document.createElement("input");
-// btnClose.classList.add("btn-submit", "button");
-// btnClose.type = "submit";
-// btnClose.value = "Close";
-
-
-// const btnClose = document.createElement('button');
-// btnClose.innertext="Close";
-//  document.body.appendChild(btnClose);
-//  btnClose.addEventListener('click') => {});
-
-
 
 reserve = document.getElementById('reserve'); 
 reserve.addEventListener('submit', function(e) {
@@ -55,7 +40,7 @@ reserve.addEventListener('submit', function(e) {
   const myError2 = document.getElementById('error2');
   const myError3 = document.getElementById('error3');
   const myError4 = document.getElementById('error4');
-  //  const msgReussite = document.getElementById('msgReussite');
+ 
   
 
   // Pattern des différents types 
@@ -89,8 +74,7 @@ reserve.addEventListener('submit', function(e) {
     compteur++
   }
   //email 
-  if (email.value == "" || emailFormat.test(email.value) == false) {          
-    //  if (email.value == "" || emailFormat.test(document.getElementById(email).value == false)) {    
+  if (email.value == "" || emailFormat.test(email.value) == false) {              
     email.style.border = "2px red solid";
     error2.textContent = "Veuillez entrer un email valide."
     myError2.style.color = 'red';
@@ -155,7 +139,7 @@ reserve.addEventListener('submit', function(e) {
      delayedClose();
   } 
   function delayedClose() {
-    window.setTimeout(reloadPage, 3000);    
+    window.setTimeout(reloadPage, 5000);    
   }
  
   function reloadPage() {
