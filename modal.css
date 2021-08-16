@@ -189,7 +189,7 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: 15px auto;
-  height: 775px; 
+  height: 750px; 
 }
 /* .modal-body  > .btn-close {
 opacity: 1;
@@ -330,7 +330,7 @@ input {
 {
   background: #fe142f;
   display: block;
-  margin: 0 auto;
+  margin: 35px auto 0;
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
@@ -341,15 +341,13 @@ input {
 .btn-close {
   background: #fe142f;
   display: block;
-  margin: 200px auto 0px;
-  /* margin-top: 80px; */
+  margin: 300px auto 0px;  
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
   color: #fff;
   cursor: pointer;
-  border: 0;
-  /* opacity: 0; */
+  border: 0; 
 }
 
 
@@ -534,7 +532,12 @@ footer {
   .topnav a.icon {
     padding-top: 0px;
   }
-   
+  .btn-submit,
+  .btn-signup
+{
+  margin: 40px auto 0; 
+} 
+
 }
 @media screen and (max-width: 800px) {
   .hero-section {

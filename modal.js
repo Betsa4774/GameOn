@@ -70,7 +70,7 @@ reserve.addEventListener('submit', function(e) {
     first.style.border = "1px red solid";
     error.textContent = "Veuillez remplir le champ avec min 2 lettres."
     myError.style.color = 'red';  
-    myError.style.fontSize = '0.6em'    
+    myError.style.fontSize = '0.5em'    
    }
   else {  
     myError.innerHTML = ""; 
@@ -82,7 +82,7 @@ reserve.addEventListener('submit', function(e) {
     last.style.border = "2px red solid";    
     error1.textContent = "Veuillez remplir le champ avec min 2 lettres."
     myError1.style.color = 'red';
-    myError1.style.fontSize = '0.6em';    
+    myError1.style.fontSize = '0.5em';    
   } 
   else {
     myError1.innerHTML = ""; 
@@ -95,7 +95,7 @@ reserve.addEventListener('submit', function(e) {
     email.style.border = "2px red solid";
     error2.textContent = "Veuillez entrer un email valide."
     myError2.style.color = 'red';
-    myError2.style.fontSize = '0.6em';   
+    myError2.style.fontSize = '0.5em';   
   }  
     else {
     myError2.innerHTML = ""; 
@@ -107,7 +107,7 @@ reserve.addEventListener('submit', function(e) {
     birthdate.style.border = "2px red solid";           
     error3.textContent ="Veuillez entrer votre date de naissance."
     myError3.style.color = 'red'; 
-    myError3.style.fontSize = '0.6em';
+    myError3.style.fontSize = '0.5em';
   } 
   else {
     myError3.innerHTML = "";
@@ -119,7 +119,7 @@ reserve.addEventListener('submit', function(e) {
     quantity.style.border = "2px red solid";    
     error4.textContent ="Vous devez saisir un nombre."
     myError4.style.color = 'red';    
-    myError4.style.fontSize = '0.6em';
+    myError4.style.fontSize = '0.5em';
   }  
   else {
    myError4.innerHTML = ""; 
@@ -134,14 +134,14 @@ reserve.addEventListener('submit', function(e) {
   else {   
     errorMsg.textContent ="Vous devez saisir une ville."
     errorMsg.style.color = 'red'; 
-    errorMsg.style.fontSize = '0.6em';
+    errorMsg.style.fontSize = '0.5em';
   }   
  //Conditions et informations. 
  
  if(!document.getElementById('checkbox1').checked) {   
   errorFinal.textContent = "Veuillez cocher les conditions d'utilisation" 
   errorFinal.style.color = 'red'; 
-  errorFinal.style.fontSize = '0.6em';
+  errorFinal.style.fontSize = '0.5em';
   }
  else { 
   errorFinal.innerHTML = ""; 
@@ -149,10 +149,8 @@ reserve.addEventListener('submit', function(e) {
   } 
   console.log(compteur)
   if (compteur === 7){
-    reserve.innerHTML = " Votre reservation <br> a  bien été reçue";
-    // reserve.style = "vertical-align: middle";
-    reserve.style = "display: flex;  justify-content: center; margin-top: 250px"; 
-    
+    reserve.innerHTML = " Votre reservation <br> a  bien été reçue";    
+    reserve.style = "display: flex;  justify-content: center; margin-top: 300px";     
 
     document.getElementById("reserve").reset();
      delayedClose();
