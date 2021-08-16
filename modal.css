@@ -535,9 +535,13 @@ footer {
   .btn-submit,
   .btn-signup
 {
-  margin: 40px auto 0; 
+  margin: 50px auto 0; 
 } 
+.btn-close {
 
+  margin: 300px auto 0px;  
+
+}
 }
 @media screen and (max-width: 800px) {
   .hero-section {

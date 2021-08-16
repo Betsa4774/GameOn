@@ -61,8 +61,7 @@ reserve.addEventListener('submit', function(e) {
   // Pattern des différents types 
   let textFormat = /^[a-zA-Z\é\è\-\^\']{2,30}$/; 
   let emailFormat = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;  
-  // let dateFormat = /((?:19|20)[0-9][0-9])-(0[1-9]|1[012])-(0[1-9]|[12][0-9]|3[01])/; 
-  // let numberFormat = /^[0-9]{1,3}$/;
+  
 
   let compteur = 0;
   //prenom 
