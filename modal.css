@@ -188,7 +188,7 @@ main {
 
 .modal-body {
   padding: 15px 8%;
-  margin: 15px auto;
+  margin: 5px auto;
   height: 750px; 
 }
 
@@ -327,7 +327,7 @@ input {
 {
   background: #fe142f;
   display: block;
-  margin: 35px auto 0;
+  margin: 15px auto 0;
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
