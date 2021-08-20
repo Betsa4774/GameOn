@@ -188,8 +188,8 @@ main {
 
 .modal-body {
   padding: 15px 8%;
-  margin: 5px auto;
-  height: 750px; 
+  margin: auto;
+   height: 745px;
 }
 
 
@@ -198,7 +198,7 @@ label {
   font-size: 17px;
   font-weight: normal;
   display: inline-block;
-  margin-bottom: 11px;
+
 }
 input {
   padding: 8px;
@@ -327,7 +327,7 @@ input {
 {
   background: #fe142f;
   display: block;
-  margin: 15px auto 0;
+  margin: auto ;
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
@@ -338,7 +338,7 @@ input {
 .btn-close {
   background: #fe142f;
   display: block;
-  margin: 280px auto 0px;  
+  margin: 300px auto 0px;  
   border-radius: 7px;
   font-size: 1rem;
   padding: 12px 82px;
@@ -501,7 +501,7 @@ footer {
   } 
   p.hero-text {  
     width: 72% ;
-    font-size: 0.4em;    
+    font-size: 0.6em;    
     white-space: normal;
   }
   

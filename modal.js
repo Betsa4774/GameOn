@@ -133,13 +133,13 @@ reserve.addEventListener('submit', function(e) {
   console.log(compteur)
   if (compteur === 7){
     reserve.innerHTML = " Votre reservation <br> a  bien été reçue";    
-    reserve.style = "display: flex;  justify-content: center; margin-top: 300px";     
+    reserve.style = "display: flex;  justify-content: center; margin-top: 280px";     
 
     document.getElementById("reserve").reset();
      delayedClose();
   } 
   function delayedClose() {
-    window.setTimeout(reloadPage, 5000);    
+    // window.setTimeout(reloadPage, 5000);    
   }
  
   function reloadPage() {
