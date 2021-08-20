@@ -139,7 +139,7 @@ reserve.addEventListener('submit', function(e) {
      delayedClose();
   } 
   function delayedClose() {
-    // window.setTimeout(reloadPage, 5000);    
+    window.setTimeout(reloadPage, 5000);    
   }
  
   function reloadPage() {
