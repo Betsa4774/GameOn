@@ -139,7 +139,7 @@ reserve.addEventListener('submit', function(e) {
      delayedClose();
   } 
   function delayedClose() {
-    window.setTimeout(reloadPage, 5000);    
+   window.setTimeout(reloadPage, 5000);    
   }
  
   function reloadPage() {
@@ -163,6 +163,7 @@ const bground = document.getElementById('bground');
 btnClose.addEventListener("click", () => {
   if(getComputedStyle(bground).display != "none"){
    bground.style.display = "none";
+  //  btnClose.style.color = 'yellow';    
   }     
 });
 
