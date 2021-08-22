@@ -189,7 +189,7 @@ main {
 .modal-body {
   padding: 15px 8%;
   margin: auto;
-  height: 749px;
+  /* height: 749px; se borro*/ 
   
 }
 
@@ -338,7 +338,7 @@ input {
 }
 .btn-close {
   background: #fe142f;
-  display: block;
+  display: none;
   margin: 300px auto 0px;  
   border-radius: 7px;
   font-size: 1rem;

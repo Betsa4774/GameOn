@@ -41,8 +41,6 @@ reserve.addEventListener('submit', function(e) {
   const myError3 = document.getElementById('error3');
   const myError4 = document.getElementById('error4');
  
-  
-
   // Pattern des différents types 
   let textFormat = /^[a-zA-Z\é\è\-\^\']{2,30}$/; 
   let emailFormat = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,3}$/;  
@@ -132,26 +130,29 @@ reserve.addEventListener('submit', function(e) {
   } 
   console.log(compteur)
   if (compteur === 7){
-    reserve.innerHTML = " Votre reservation <br> a  bien été reçue";    
+    reserve.innerHTML = "Votre reservation <br> a bien été reçue";
+    btnClose.style.display = "block";   //se agrego
     reserve.style = "display: flex;  justify-content: center; margin-top: 280px";     
-
+   
     document.getElementById("reserve").reset();
      delayedClose();
   } 
+  
   function delayedClose() {
-   window.setTimeout(reloadPage, 5000);    
-  }
+    window.setTimeout(reloadPage, 5000);    
+   }
  
   function reloadPage() {
     location.reload();
   } 
-  reserve.addEventListener("click", () => { //msg reussite et fermeture 
-   if (reserve.innerHTML === "Votre réservation a bien été reçue") {
-      if(getComputedStyle(bground).display != "none"){
-       bground.style.display = "none";
-       e.preventDefault();      
-      } 
-  } })
+  // reserve.addEventListener("click", () => { //msg reussite et fermeture 
+  //   if (reserve.innerHTML === "Votre réservation a bien été reçue") {
+  //      if(getComputedStyle(bground).display != "none"){
+  //       bground.style.display = "none";
+  //       e.preventDefault();      
+  //      } 
+  //  } }) 
+  
 });
 
 // Close Modal
@@ -161,9 +162,10 @@ const btnClose = document.getElementById('btn-Close');
 const bground = document.getElementById('bground');
 
 btnClose.addEventListener("click", () => {
+  
   if(getComputedStyle(bground).display != "none"){
    bground.style.display = "none";
-  //  btnClose.style.color = 'yellow';    
+   reloadPage();   //  se agrego    
   }     
 });
 
